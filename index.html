@@ -1,0 +1,735 @@
+<html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LEXVANT | CHOCO NEBLINA</title>
+
+    <link href="https://img.freepik.com/fotos-premium/barra-chocolate-vertical-toque-sutil-chocolate-derretido-base-3d_747552-39734.jpg?w=2000" rel="stylesheet">
+
+    <style>
+        /* CONFIGURACIÓN GENERAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --fondo: #1c110e;
+            --cafe: #39221a;
+            --dorado: #c9a46a;
+            --crema: #f4eee5;
+            --blanco: #fffaf4;
+            --gris: #b9aaa0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--fondo);
+            color: var(--blanco);
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section {
+            scroll-margin-top: 30px;
+        }
+
+        .seccion {
+            padding: 100px 10%;
+        }
+
+        .subtitulo {
+            color: var(--dorado);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(38px, 5vw, 65px);
+        }
+
+        h2 span, h1 span {
+            color: var(--dorado);
+        }
+
+        /* MENÚ DE NAVEGACIÓN */
+        header {
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #493025;
+            background: var(--fondo);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: var(--dorado);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dorado);
+        }
+
+        /* PORTADA */
+        .inicio {
+            min-height: 650px;
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            background: radial-gradient(circle at 80% 50%, #493025, var(--fondo) 65%);
+        }
+
+        .inicio h1 {
+            font-size: clamp(65px, 9vw, 115px);
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .descripcion {
+            color: var(--gris);
+            font-size: 14px;
+            max-width: 450px;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 13px 28px;
+            border: 1px solid var(--dorado);
+            color: var(--dorado);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: var(--dorado);
+            color: var(--fondo);
+        }
+
+        .imagen-inicio {
+            position: relative;
+        }
+
+        .imagen-inicio img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+        }
+
+        .etiqueta {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            padding: 18px 25px;
+            background: var(--crema);
+            color: var(--fondo);
+        }
+
+        .etiqueta small {
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #8d6a42;
+        }
+
+        .etiqueta h3 {
+            font-size: 25px;
+        }
+
+        /* EMPRESA LEXVANT */
+        .empresa {
+            background: var(--crema);
+            color: var(--fondo);
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .empresa-contenido {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.8fr 1.5fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .simbolo {
+            width: 220px;
+            height: 220px;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--dorado);
+            outline: 1px solid var(--dorado);
+            outline-offset: 10px;
+            color: #a57b40;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 120px;
+        }
+
+        .empresa-texto h3 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .empresa-texto p {
+            color: #6d5d53;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .enlace {
+            display: inline-block;
+            margin-top: 10px;
+            color: #8a642e;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* PRODUCTO CHOCO NEBLINA */
+        .producto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 75px;
+            align-items: center;
+        }
+
+        .producto-imagen {
+            position: relative;
+        }
+
+        .producto-imagen img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+
+        .producto-etiqueta {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: var(--crema);
+            color: var(--fondo);
+            padding: 10px 15px;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        .producto h2 {
+            font-size: clamp(55px, 7vw, 85px);
+            margin-bottom: 20px;
+        }
+
+        .frase-producto {
+            color: var(--dorado);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .producto-texto {
+            color: var(--gris);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .detalles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+            padding: 25px 0;
+            border-top: 1px solid #604536;
+            border-bottom: 1px solid #604536;
+        }
+
+        .detalles span {
+            color: var(--dorado);
+            font-size: 11px;
+        }
+
+        .detalles h4 {
+            font-size: 13px;
+            margin: 8px 0;
+        }
+
+        .detalles p {
+            color: var(--gris);
+            font-size: 10px;
+        }
+
+        /* FILOSOFÍA DE LA MARCA */
+        .filosofia {
+            padding: 110px 10%;
+            text-align: center;
+            background: linear-gradient(135deg, #493025, #21140f);
+            border-top: 1px solid #6e4c36;
+            border-bottom: 1px solid #6e4c36;
+        }
+
+        .filosofia h2 {
+            margin: 25px 0;
+        }
+
+        .filosofia > p:last-child {
+            color: var(--gris);
+            font-size: 13px;
+            margin-top: 25px;
+        }
+
+        /* CARACTERÍSTICAS */
+        .caracteristicas {
+            background: var(--crema);
+            color: var(--fondo);
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            padding: 40px 28px;
+            border: 1px solid #dfd1c0;
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            border-color: var(--dorado);
+            box-shadow: 0 15px 35px #39221a12;
+        }
+
+        .icono {
+            font-size: 32px;
+            color: #a57b40;
+            margin-bottom: 20px;
+        }
+
+        .tarjeta h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta p {
+            color: #74645a;
+            font-size: 12px;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            background: #281812;
+        }
+
+        .contacto h2 {
+            margin-bottom: 20px;
+        }
+
+        .contacto p:not(.subtitulo) {
+            color: var(--gris);
+            font-size: 13px;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            padding: 40px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-top: 1px solid #493025;
+        }
+
+        footer p {
+            color: var(--gris);
+            font-size: 11px;
+        }
+
+        .copyright {
+            width: 100%;
+            padding-top: 20px;
+            border-top: 1px solid #493025;
+            text-align: center;
+        }
+
+        /* ADAPTACIÓN A CELULARES */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .inicio {
+                grid-template-columns: 1fr;
+            }
+
+            .imagen-inicio {
+                max-width: 550px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .empresa-contenido,
+            .producto {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .producto-imagen {
+                max-width: 550px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .contacto {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .seccion {
+                padding: 70px 7%;
+            }
+
+            .inicio {
+                padding: 60px 7%;
+            }
+
+            .inicio h1 {
+                font-size: 65px;
+            }
+
+            .imagen-inicio img {
+                height: 300px;
+            }
+
+            .producto-imagen img {
+                height: 350px;
+            }
+
+            .detalles {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENÚ PRINCIPAL -->
+    <header>
+        <a href="#inicio" class="logo">LEXVANT<span>.</span></a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#empresa">Empresa</a>
+            <a href="#producto">Producto</a>
+            <a href="#caracteristicas">Características</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- PORTADA -->
+    <section class="inicio" id="inicio">
+
+        <div>
+            <p class="subtitulo">LEXVANT PRESENTA</p>
+
+            <h1>CHOCO<br><span>NEBLINA</span></h1>
+
+            <p class="descripcion">
+                Una experiencia artesanal donde la intensidad
+                del chocolate se encuentra con la esencia del café.
+                Un sabor que transforma cada momento en algo especial.
+            </p>
+
+            <a href="#producto" class="boton">
+                Descubrir producto
+            </a>
+        </div>
+
+        <div class="imagen-inicio">
+            <img
+                src="https://images.unsplash.com/photo-1548907040-4d42bfc7a6f2?auto=format&fit=crop&w=1000&q=85"
+                alt="Chocolate de presentación elegante">
+
+            <div class="etiqueta">
+                <small>EXPERIENCIA ARTESANAL</small>
+                <h3>Un placer extraordinario</h3>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- INFORMACIÓN DE LA EMPRESA -->
+    <section class="seccion empresa" id="empresa">
+
+        <div class="titulo-seccion">
+            <p class="subtitulo">NUESTRA ESENCIA</p>
+            <h2>Detrás de cada gran idea,<br>
+                <span>existe una visión.</span>
+            </h2>
+        </div>
+
+        <div class="empresa-contenido">
+
+            <div class="simbolo">L.</div>
+
+            <div class="empresa-texto">
+                <h3>¿Qué es LEXVANT?</h3>
+
+                <p>
+                    LEXVANT es la empresa organizadora responsable
+                    de desarrollar, presentar y proyectar productos
+                    con identidad propia. Su propósito es construir
+                    una marca que represente creatividad, calidad
+                    y una experiencia diferente para sus consumidores.
+                </p>
+
+                <p>
+                    A través de CHOCO NEBLINA, LEXVANT presenta
+                    una propuesta que une el carácter del chocolate
+                    con el aroma del café, buscando ofrecer un producto
+                    atractivo, distintivo y memorable.
+                </p>
+
+                <a href="#producto" class="enlace">
+                    Conoce nuestra propuesta →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRESENTACIÓN DEL PRODUCTO -->
+    <section class="seccion producto" id="producto">
+
+        <div class="producto-imagen">
+            <img
+                src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=85"
+                alt="Selección de chocolates">
+
+            <span class="producto-etiqueta">
+                COLECCIÓN ARTESANAL
+            </span>
+        </div>
+
+        <div>
+            <p class="subtitulo">NUESTRO PRODUCTO</p>
+
+            <h2>CHOCO<br><span>NEBLINA</span></h2>
+
+            <p class="frase-producto">
+                El encuentro entre dos grandes sabores.
+            </p>
+
+            <p class="producto-texto">
+                CHOCO NEBLINA es una propuesta de chocolate
+                artesanal con café, creada para quienes disfrutan
+                de sabores intensos y de los pequeños placeres de la vida.
+            </p>
+
+            <p class="producto-texto">
+                Su identidad combina una imagen sofisticada con
+                una esencia cálida, convirtiéndolo en una opción
+                ideal para disfrutar o compartir.
+            </p>
+
+            <div class="detalles">
+
+                <div>
+                    <span>01</span>
+                    <h4>Chocolate</h4>
+                    <p>Intensidad y carácter.</p>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <h4>Café</h4>
+                    <p>Aroma y personalidad.</p>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <h4>Artesanal</h4>
+                    <p>Una propuesta distintiva.</p>
+                </div>
+
+            </div>
+
+            <a href="#contacto" class="boton">
+                Más información
+            </a>
+        </div>
+
+    </section>
+
+    <!-- FILOSOFÍA -->
+    <section class="filosofia">
+
+        <p class="subtitulo">LA FILOSOFÍA LEXVANT</p>
+
+        <h2>
+            No se trata solamente<br>
+            de un sabor, sino de<br>
+            <span>una experiencia.</span>
+        </h2>
+
+        <p>
+            CHOCO NEBLINA: el carácter del chocolate,
+            la esencia del café y una identidad propia.
+        </p>
+
+    </section>
+
+    <!-- CARACTERÍSTICAS DEL PRODUCTO -->
+    <section class="seccion caracteristicas" id="caracteristicas">
+
+        <div class="titulo-seccion">
+            <p class="subtitulo">LO QUE NOS DISTINGUE</p>
+            <h2>Una identidad <span>inigualable.</span></h2>
+        </div>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <div class="icono">✦</div>
+                <h3>Identidad propia</h3>
+                <p>
+                    Un concepto creado para destacar por su
+                    nombre, imagen y personalidad.
+                </p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">❋</div>
+                <h3>Combinación especial</h3>
+                <p>
+                    Una propuesta que une dos sabores reconocidos:
+                    chocolate y café.
+                </p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">◇</div>
+                <h3>Presentación premium</h3>
+                <p>
+                    Una imagen elegante que busca transmitir
+                    distinción en cada detalle.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="seccion contacto" id="contacto">
+
+        <div>
+            <p class="subtitulo">DESCUBRE NUESTRA PROPUESTA</p>
+
+            <h2>
+                Descubre el universo<br>
+                de <span>CHOCO NEBLINA.</span>
+            </h2>
+
+            <p>
+                Conoce nuestra propuesta y descubre lo que
+                LEXVANT tiene preparado para ti.
+            </p>
+        </div>
+
+        <a href="mailto:contacto@lexvant.com" class="boton">
+            Contáctanos
+        </a>
+
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <a href="#inicio" class="logo">LEXVANT<span>.</span></a>
+
+        <p>Empresa organizadora de CHOCO NEBLINA</p>
+
+        <p class="copyright">
+            © 2026 LEXVANT. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+</body>
+</html>
